@@ -3,22 +3,16 @@ import Cards from "../Cards";
 import "./style.css";
 
 const Game = ({ cards }) => {
-  //   const [choiceOne, setChoiceOne] = useState(null);
-  const [turns, setTurns] = useState(0);
-  const [match, setMatch] = useState(0);
-  const [seconds, setSeconds] = useState(10);
-  let choiceOne = null;
-  let add = [];
-  //   let time = 5;
-
-  //   const [choiceTwo, setChoiceTwo] = useState(null);
   const [cardsArray, setCardsArray] = useState(cards);
+  const [openCards, setOpenCards] = useState([]);
+  const [turns, setTurns] = useState(0);
+  const [seconds, setSeconds] = useState(10);
 
   useEffect(() => {
     const newArray = cardsArray
       .concat(cardsArray)
       .sort(() => Math.random() - 0.5)
-      .map((card) => ({ ...card, id: Math.random() }));
+      .map((card, index) => ({ ...card, id: index }));
     setCardsArray(newArray);
   }, []);
 
@@ -30,21 +24,22 @@ const Game = ({ cards }) => {
     }
   });
 
-  const setValues = () => {
-    //   setChoiceOne(null);
-    choiceOne = null;
-    add = [];
-  };
+  useEffect(() => {
+    if (openCards.length === 2) {
+      game();
+    }
+  }, [openCards]);
 
   const clickHandel = (card) => {
-    if (choiceOne) {
-      //   setChoiceTwo(card);
-      game(card);
+    if (openCards.length === 1) {
+      setOpenCards((prev) => [...prev, card.id]);
+      console.log("card two should be flipped");
+      console.log(cardsArray[card.id]);
     } else {
-      choiceOne = card;
-      //   setChoiceOne(card);
+      setOpenCards([card.id]);
+      console.log("card one should be flipped");
+      console.log(cardsArray[card.id]);
     }
-    console.log(add);
   };
 
   const completed = () => {
@@ -53,29 +48,37 @@ const Game = ({ cards }) => {
     }
   };
 
-  const game = (card) => {
-    if (choiceOne.name === card.name) {
+  const game = () => {
+    const [cardOne, cardTwo] = openCards;
+    if (cardsArray[cardOne].name === cardsArray[cardTwo].name) {
       console.log("match");
-      choiceOne.matched = true;
-      card.matched = true;
-      console.log(cardsArray);
-      //   setChoice();
-      setValues();
+      cardsArray[cardOne].matched = true;
+      cardsArray[cardTwo].matched = true;
       setTurns((turn) => turn + 1);
-      setMatch((match) => match + 1);
+      setOpenCards([]);
       completed();
     } else {
-      //   setChoice();
-      setValues();
+      console.log("not a match");
       setTurns((turn) => turn + 1);
+      setTimeout(() => {
+        setOpenCards([]);
+      }, 2000);
     }
   };
 
   return (
     <>
       <h1>{seconds}</h1>
+      <h1>{turns}</h1>
       {cardsArray.map((card, index) => {
-        return <Cards card={card} clickHandel={clickHandel} add={add} index={index} key={index} />;
+        return (
+          <Cards
+            card={card}
+            clickHandel={clickHandel}
+            index={index}
+            key={index}
+          />
+        );
       })}
     </>
   );
