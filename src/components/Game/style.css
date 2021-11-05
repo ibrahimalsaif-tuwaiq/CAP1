@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+.timerCounter {
+    font-size: 200%;
+    font-family: 'Orbitron', sans-serif;
+        background-color: chocolate;
+}
+
+.easyGrid {
+    height: 80rem;
+    width: 40%;
+    border: 2rem solid black;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    background-color: cornflowerblue;
+}
+
+.turnsCounter {
+    font-size: 200%;
+    background-color: crimson;
+}

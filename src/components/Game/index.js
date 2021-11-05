@@ -30,56 +30,79 @@ const Game = ({ cards }) => {
     }
   }, [openCards]);
 
-  const clickHandel = (card) => {
-    if (openCards.length === 1) {
-      setOpenCards((prev) => [...prev, card.id]);
-      console.log("card two should be flipped");
-      console.log(cardsArray[card.id]);
-    } else {
-      setOpenCards([card.id]);
-      console.log("card one should be flipped");
-      console.log(cardsArray[card.id]);
-    }
-  };
-
-  const completed = () => {
+  useEffect(() => {
     if (cardsArray.every((card) => card.matched)) {
       console.log("win");
     }
+  }, [cardsArray]);
+
+  const clickHandel = (card) => {
+    if (openCards.length === 1) {
+      setOpenCards((prev) => [...prev, card.id]);
+      setCardFlipped(card.id);
+    } else {
+      setOpenCards([card.id]);
+      setCardFlipped(card.id);
+    }
+  };
+
+  const setCardFlipped = (index) => {
+    let newCardsArray = [...cardsArray];
+    newCardsArray[index].flipped = true;
+    setCardsArray(newCardsArray);
+  };
+
+  const setCardUnFlipped = (indexOne, indexTwo) => {
+    let newCardsArray = [...cardsArray];
+    newCardsArray[indexOne].flipped = false;
+    newCardsArray[indexTwo].flipped = false;
+    setCardsArray(newCardsArray);
+  };
+
+  const setCardMatched = (indexOne, indexTwo) => {
+    setTimeout(() => {
+      let newCardsArray = [...cardsArray];
+      newCardsArray[indexOne].matched = true;
+      newCardsArray[indexTwo].matched = true;
+      setCardsArray(newCardsArray);
+    }, 1000);
   };
 
   const game = () => {
     const [cardOne, cardTwo] = openCards;
     if (cardsArray[cardOne].name === cardsArray[cardTwo].name) {
-      console.log("match");
-      cardsArray[cardOne].matched = true;
-      cardsArray[cardTwo].matched = true;
+      setCardMatched(cardOne, cardTwo);
       setTurns((turn) => turn + 1);
       setOpenCards([]);
-      completed();
     } else {
-      console.log("not a match");
       setTurns((turn) => turn + 1);
       setTimeout(() => {
         setOpenCards([]);
-      }, 2000);
+        setCardUnFlipped(cardOne, cardTwo);
+      }, 1000);
     }
   };
 
   return (
     <>
-      <h1>{seconds}</h1>
-      <h1>{turns}</h1>
-      {cardsArray.map((card, index) => {
-        return (
-          <Cards
-            card={card}
-            clickHandel={clickHandel}
-            index={index}
-            key={index}
-          />
-        );
-      })}
+      <div className="timerCounter">
+        <h1>{seconds}</h1>
+      </div>
+      <div className="easyGrid">
+        {cardsArray.map((card, index) => {
+          return (
+            <Cards
+              card={card}
+              clickHandel={clickHandel}
+              index={index}
+              key={index}
+            />
+          );
+        })}
+      </div>
+      <div className="turnsCounter">
+        <h1>{turns}</h1>
+      </div>
     </>
   );
 };

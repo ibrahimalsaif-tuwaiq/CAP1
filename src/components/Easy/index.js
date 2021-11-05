@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Game from "../Game";
 import "./style.css";
 
@@ -11,9 +11,7 @@ const Easy = () => {
 
   return (
     <div className="easyWrapper">
-      <div className="easyGrid">
-        <Game cards={easyArray}/>;
-      </div>
+      <Game cards={easyArray} />
     </div>
   );
 };
