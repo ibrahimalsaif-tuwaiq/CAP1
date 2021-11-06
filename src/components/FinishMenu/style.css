@@ -11,7 +11,7 @@
 }
 
 .finishMenu {
-  height: 60%;
+  height: 75%;
   width: 60%;
   padding: 2rem 3rem;
   display: flex;
@@ -28,8 +28,9 @@
   font-family: "Press Start 2P", cursive;
 }
 
-.finishMenuScore {
+.finishMenuScore, .finishMenuTurns {
   display: flex;
+  margin-bottom: 0.5rem;
   font-size: 120%;
   color: #2b2d42;
   font-family: "Press Start 2P", cursive;
@@ -74,7 +75,7 @@
     font-size: 180%;
   }
 
-  .finishMenuScore {
+  .finishMenuScore, .finishMenuTurns {
     font-size: 100%;
   }
 
@@ -93,7 +94,7 @@
     font-size: 140%;
   }
 
-  .finishMenuScore {
+  .finishMenuScore, .finishMenuTurns {
     font-size: 90%;
   }
 
@@ -116,7 +117,7 @@
     font-size: 120%;
   }
 
-  .finishMenuScore {
+  .finishMenuScore, .finishMenuTurns {
     font-size: 85%;
   }
 }
@@ -130,7 +131,7 @@
     font-size: 70%;
   }
 
-  .finishMenuScore {
+  .finishMenuScore, .finishMenuTurns {
     font-size: 50%;
   }
 

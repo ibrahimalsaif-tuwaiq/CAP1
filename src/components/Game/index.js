@@ -7,6 +7,7 @@ const Game = ({ cards, gridName, level, time }) => {
   const [cardsArray, setCardsArray] = useState(cards);
   const [openCards, setOpenCards] = useState([]);
   const [turns, setTurns] = useState(0);
+  const [score, setScore] = useState(0);
   const [seconds, setSeconds] = useState(time);
   const [disableClick, setdisableClick] = useState(false);
   const gridClass = gridName;
@@ -28,7 +29,7 @@ const Game = ({ cards, gridName, level, time }) => {
       setTimeout(() => setSeconds(seconds - 1), 1000);
     } else {
       const status = "YOU LOST";
-      history.push(`/finishmenu/${status}/${turns}`);
+      history.push(`/finishmenu/${status}/${turns}/${score}`);
     }
   });
 
@@ -44,7 +45,7 @@ const Game = ({ cards, gridName, level, time }) => {
   useEffect(() => {
     if (cardsArray.every((card) => card.matched)) {
       const status = "YOU WON";
-      history.push(`/finishmenu/${status}/${turns}`);
+      history.push(`/finishmenu/${status}/${turns}/${score}`);
     }
   }, [cardsArray]);
 
@@ -96,6 +97,7 @@ const Game = ({ cards, gridName, level, time }) => {
     if (cardsArray[cardOne].name === cardsArray[cardTwo].name) {
       setCardMatched(cardOne, cardTwo);
       setTurns((turn) => turn + 1);
+      setScore((score) => score + 1);
       resetTurns();
     } else {
       setTurns((turn) => turn + 1);
@@ -130,12 +132,22 @@ const Game = ({ cards, gridName, level, time }) => {
           );
         })}
       </div>
-      <div className="turnsCounter">
-        <div className="turnsTitle">
-          <h2>Turns</h2>
+      <div className="counters">
+        <div className="turnsCounter">
+          <div className="turnsTitle">
+            <h2>Turns</h2>
+          </div>
+          <div className="turnsCount">
+            <h1>{turns}</h1>
+          </div>
         </div>
-        <div className="turnsCount">
-          <h1>{turns}</h1>
+        <div className="scoreCounter">
+          <div className="scoreTitle">
+            <h2>Score</h2>
+          </div>
+          <div className="scoreCount">
+            <h1>{score}</h1>
+          </div>
         </div>
       </div>
     </>

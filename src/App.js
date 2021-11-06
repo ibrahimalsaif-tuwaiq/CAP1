@@ -20,7 +20,7 @@ const App = () => {
         <Route exact path="/easy" component={Easy} />
         <Route exact path="/normal" component={Normal} />
         <Route exact path="/hard" component={Hard} />
-        <Route exact path="/finishmenu/:status/:score" component={FinishMenu} />
+        <Route exact path="/finishmenu/:status/:turns/:score" component={FinishMenu} />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </>

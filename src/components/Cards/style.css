@@ -4,17 +4,17 @@
 
 .easy {
   width: 11rem;
-  height: 16rem;
+  height: 12rem;
 }
 
 .normal {
   width: 8rem;
-  height: 13rem;
+  height: 9rem;
 }
 
 .hard {
   width: 8rem;
-  height: 11rem;
+  height: 7rem;
 }
 
 .flip-card-inner {
@@ -66,36 +66,51 @@
 @media screen and (max-width: 1300px) {
   .easy {
     width: 10rem;
-    height: 15rem;
+    height: 11rem;
+  }
+
+  .normal {
+    width: 7.5rem;
+    height: 8.5rem;
   }
 
   .hard {
     width: 7.5rem;
-    height: 11rem;
+    height: 6.5rem;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .easy {
     width: 9rem;
-    height: 14rem;
+    height: 10rem;
+  }
+
+  .normal {
+    width: 7rem;
+    height: 8rem;
   }
 
   .hard {
-    width: 6.5rem;
-    height: 10.5rem;
+    width: 7rem;
+    height: 6rem;
   }
 }
 
 @media screen and (max-width: 1100px) {
   .easy {
     width: 8rem;
-    height: 13rem;
+    height: 9rem;
   }
 
   .normal {
-    width: 7.5rem;
-    height: 12rem;
+    width: 6.5rem;
+    height: 7.5rem;
+  }
+
+  .hard {
+    width: 6.5rem;
+    height: 5.5rem;
   }
 
 }
@@ -103,16 +118,16 @@
 @media screen and (max-width: 1000px) {
   .easy {
     width: 7rem;
-    height: 12rem;
+    height: 8rem;
   }
 
   .normal {
-    width: 7rem;
-    height: 11rem;
+    width: 6rem;
+    height: 7rem;
   }
 
   .hard {
     width: 6rem;
-    height: 10rem;
+    height: 5rem;
   }
 }
