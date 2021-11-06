@@ -7,10 +7,19 @@ const Menu = () => {
     <div className="menuWrapper">
       <div className="menuTitle">
         <h1>Flip Card</h1>
+        <img src="./img/logo.png" alt="disney logo" />
       </div>
       <div className="menuButtons">
-        <button><Link to="/gamelevel">START</Link></button>
-        <button><Link to="/instructions">INSTRACTIONS</Link></button>
+        <button>
+          <Link to="/levels" className="menuButton">
+            START
+          </Link>
+        </button>
+        <button>
+          <Link to="/instructions" className="menuButton">
+            INSTRACTIONS
+          </Link>
+        </button>
       </div>
     </div>
   );

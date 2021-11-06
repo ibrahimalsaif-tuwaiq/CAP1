@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Game from "../Game";
-import "./style.css";
 
 const Easy = () => {
   const easyArray = [
-    { name: "pic1", image: "./img/p1.jpeg", matched: false, flipped: false },
-    { name: "pic2", image: "./img/p2.jpeg", matched: false, flipped: false },
-    { name: "pic3", image: "./img/p3.jpeg", matched: false, flipped: false },
+    { name: "Dalmatian", image: "./img/Dalmatian.jpg", matched: false, flipped: false },
+    { name: "Mickey", image: "./img/Mickey.jpg", matched: false, flipped: false },
+    { name: "Winnie", image: "./img/Winnie.jpg", matched: false, flipped: false },
   ];
 
   return (
-    <div className="easyWrapper">
-      <Game cards={easyArray} />
+    <div className="gameWrapper">
+      <Game cards={easyArray} gridName={'easyGrid'} level={'easy'} time={10}/>
     </div>
   );
 };
