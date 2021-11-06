@@ -28,8 +28,10 @@ const Game = ({ cards, gridName, level, time }) => {
     if (seconds > 0) {
       setTimeout(() => setSeconds(seconds - 1), 1000);
     } else {
-      const status = "YOU LOST";
-      history.push(`/finishmenu/${status}/${turns}/${score}`);
+      setTimeout(() => {
+        const status = "YOU LOST";
+        history.push(`/finishmenu/${status}/${turns}/${score}`);
+      }, 1000);
     }
   });
 
@@ -44,8 +46,10 @@ const Game = ({ cards, gridName, level, time }) => {
   // Check if the player won the game
   useEffect(() => {
     if (cardsArray.every((card) => card.matched)) {
-      const status = "YOU WON";
-      history.push(`/finishmenu/${status}/${turns}/${score}`);
+      setTimeout(() => {
+        const status = "YOU WON";
+        history.push(`/finishmenu/${status}/${turns}/${score}`);
+      }, 1000);
     }
   }, [cardsArray]);
 

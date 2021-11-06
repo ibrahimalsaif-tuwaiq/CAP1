@@ -10,7 +10,7 @@ const Easy = () => {
 
   return (
     <div className="gameWrapper">
-      <Game cards={easyArray} gridName={'easyGrid'} level={'easy'} time={10}/>
+      <Game cards={easyArray} gridName={'easyGrid'} level={'easy'} time={20}/>
     </div>
   );
 };

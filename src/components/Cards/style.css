@@ -3,8 +3,8 @@
 }
 
 .easy {
-  width: 11rem;
-  height: 12rem;
+  width: 10rem;
+  height: 11rem;
 }
 
 .normal {
@@ -65,8 +65,8 @@
 
 @media screen and (max-width: 1300px) {
   .easy {
-    width: 10rem;
-    height: 11rem;
+    width: 9rem;
+    height: 8rem;
   }
 
   .normal {
@@ -82,8 +82,8 @@
 
 @media screen and (max-width: 1200px) {
   .easy {
-    width: 9rem;
-    height: 10rem;
+    width: 8rem;
+    height: 9rem;
   }
 
   .normal {
@@ -99,8 +99,8 @@
 
 @media screen and (max-width: 1100px) {
   .easy {
-    width: 8rem;
-    height: 9rem;
+    width: 7rem;
+    height: 8rem;
   }
 
   .normal {
@@ -117,8 +117,8 @@
 
 @media screen and (max-width: 1000px) {
   .easy {
-    width: 7rem;
-    height: 8rem;
+    width: 6rem;
+    height: 7rem;
   }
 
   .normal {
